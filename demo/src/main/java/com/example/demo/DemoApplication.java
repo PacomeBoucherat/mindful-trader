@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 //this is a random thing 
+//This is second random thing
 @SpringBootApplication
 public class DemoApplication {
 

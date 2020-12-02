@@ -1,0 +1,29 @@
+<script>
+
+var solution = {count:0 , advices:"This advice is valid for a time-span of 2 days"};
+var data = [[100.0 , 100.0 , 100.0 , 100.0] , [100.0,100.0,100.0,200.0] , [100.0 , 100.0 , 100.0 , 80.0] , [100.0 , 100.0 , 100.0 , 90.0]];
+
+document.write(solution.count);
+document.write(solution.advices);
+document.write(data);
+
+function readShootingStar (data, solution){
+    
+        max =data[1][data[0].length - 1];
+
+        min= data[2][data[0].length - 1];
+
+        open = data[0][data[0].length - 1];
+
+        close = data[3][data[0].length - 1];
+
+        if (   (close<open) && (close < (2*min + max)/3)  ){
+             
+             solution.count += -10;
+             solution.advices = solution.advices +"There is a shooting star, this is a simple indicator that the price will most likely go down";
+document.write(solution.advices);
+			}
+}	
+</script>
+
+<input type=button onClick="readShootingStar(data,solution)" value="Run shootingStar">

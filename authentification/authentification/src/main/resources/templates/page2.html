@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>Algorithm</title>
+</head>
+<!-- All of the following is the analysis algorithm, it is implemented in this file for practical reasons, but will be in a separate file in the final product -->
+<script>
+
+var opens1 = [100.0 , 100.0 , 100.0 , 100.0];
+var maxs1=[100.0 , 100.0,100.0,200.0];
+var mins1=[100.0 , 100.0 , 100.0 , 80.0];
+var closes1=[100.0 , 100.0 , 100.0 , 90.0];
+var data1 = [opens1,maxs1,mins1,closes1];
+
+var opens2 =[10.0 , 12.0 , 14.0 , 8.0];
+var maxs2 =[1.0,1.0,10.0,1.0];
+var mins2 =[1.0,1.0,1.0,1.0];
+var closes2 =[1.0,1.0,1.0,1.0];
+var data2 =[opens2,maxs2,mins2,closes2];
+
+var opens3 = [10.0 , 11.0 , 13.0 , 17.0 , 25.0, 41.0];
+var maxs3=[10.0 , 10.0 , 10.0 , 10.0 , 10.0 , 10.0];
+var mins3=[10.0 , 10.0 , 10.0 , 10.0 , 10.0 , 10.0];
+var closes3=[10.0 , 10.0 , 10.0 , 10.0 , 10.0 , 10.0];
+var data3 = [opens3,maxs3,mins3,closes3];
+
+var torun = [1,2];
+
+var solution = {count:0 , advices:"This advice is valid for a time-span of 2 days. <br>"};
+
+function readShootingStar (data, solution){
+    max =data[1][data[0].length - 1];
+	min= data[2][data[0].length - 1];
+	open = data[0][data[0].length - 1];
+	close = data[3][data[0].length - 1];
+	if (   (close<open) && (close < (2*min + max)/3)  ){
+         solution.count += -10;
+         solution.advices = solution.advices +"There is a shooting star, this is a simple indicator that the price will most likely go down <br>";
+        }
+    else {solution.advices = solution.advices +"There is no shooting star <br>";}
+}
+
+function readTrend (data, solution){
+    
+    derivative = 0;
+    totalDerivatives = 0;
+    opens = data[0];
+    rest = 0.0;
+    for ( var i=0; i< (opens.length - 1); i++) {
+        rest = opens.length - i;
+        derivative = opens[i+1] - opens[i];
+        totalDerivatives = totalDerivatives + (derivative * (1/(rest) ));
+        }
+    solution.count = solution.count += totalDerivatives;
+}
+
+function analysisFunctions(data, solution,functionsToRun){
+    for (var i = 0; i< functionsToRun.length; i++){
+        if (functionsToRun[i] == 1){readTrend(data,solution);}
+        if (functionsToRun[i] == 2){readShootingStar(data, solution);}
+        if (functionsToRun[i]>2){
+            solution.advices = solution.advices + "The next functions are not coded yet, don't be impatient. ";
+        }
+      }
+
+
+}
+
+function algorithm (data,functionsToRun){
+    analysisFunctions(data, solution, functionsToRun);
+    if (solution.count<-5){
+	solution.advices = solution.advices + "You should sell your shares if you own some in this company.";
+	}
+    if ((solution.count>-4) && (solution.count<8)){
+	solution.advices = solution.advices + "There is not enough information to choose between selling and buying.";
+	}
+	if (solution.count>7){
+	solution.advices = solution.advices + "This stock seems to be increasing its value, we recommend you to buy a share in this company.";
+	}
+	document.write(solution.advices);
+    
+}
+
+
+</script>
+
+<h1>Welcome to the Algorithm</h1>
+
+
+<p>To run the algorithm on the company A (a doomed company), click the following button:</p><input type=button onClick="algorithm(data1,torun)" value="Run algorithm on company A">
+<p>To run it on company B (an average company with average revenues), click this one :</p><input type=button onClick="algorithm(data2,torun)" value="Run algorithm on company B">
+<p>To run it on company C (a company breaking every records), click this one :</p><input type=button onClick="algorithm(data3,torun)" value="Run algorithm on company C">
+<br>
+<a th:href="@{/portfolio}">Portfolio</a>
+</html>

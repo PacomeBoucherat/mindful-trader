@@ -34,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		@SuppressWarnings("deprecation")
 		UserDetails user =
 			User.withDefaultPasswordEncoder()
-				.username("user")
+				.username("seagull")
 				.password("password")
 				.roles("USER")
 				.build();

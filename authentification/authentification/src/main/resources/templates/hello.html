@@ -3,11 +3,17 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head>
         <title>Hello World!</title>
+      
     </head>
     <body>
-        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+    	
+    
+    <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]! Welcome to Mindful Trader!</h1>
         <form th:action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
+            <input type="submit" value="Sign Out"/><br>
+            <a th:href="@{/page2}">Algorithm here<br></a>
+            <a th:href="@{/portfolio}">Portfolio</a>
         </form>
+        	
     </body>
 </html>

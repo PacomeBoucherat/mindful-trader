@@ -20,4 +20,11 @@ taskkill  /F  /PID  19788
 For the structure of the software, here is a little summary.
 We have 5 html files, each coding one page. There is no javascript file as what we are doing is pretty basic right now. We will, however, create a separate file for the analysis algorithm later on in the project when we will have more analysis functions (the algo file was a prototype of this).
 The "welcome.html" is the page that opens first, giving the link to the softawre (hello.html). The "login.html" opens when you try to access a page and you are not authentified, it then redirects you to the page you tried to access. "hello.html" is the page that opens once you login, it displays the Username and can redirect you to both the analysis algorithm and the portfolio management. "page2.html" is the algorithm page. It contains as a local variable, data for three different companies. Three options to run the algorithm on and the returned advice opens a new page when returned. "portfolio.html" is the portfolio page, it does not contain yet the link to the database to update the list of owned shares by the user, but we will add it too.
-The login page goes and checks in its database if the information given by the user is true or not. all the data is (almost) secured. The tutorial used to create this authentification system said that for project purposes it was enough, but an experienced hacker (or good programmer) could still go and look at 'what is expected' by the login page, making it unsufficient for commercial purpose. 
+The login page goes and checks in its database if the information given by the user is true or not. all the data is (almost) secured. The tutorial used to create this authentification system said that for project purposes it was enough, but an experienced hacker (or good programmer) could still go and look at 'what is expected' by the login page, making it unsufficient for commercial purpose.
+Both databases have been built using MySQL on PHPMyAdmin however they are not linked to the program and are not compilated. They are also only accessible throught the universities network for now. In the future the database will be moved to another hosting service accessible anywhere and will be populated as they are curently empty.  To access the current databases the links and credentials are below.
+Database Acssess Credentials:
+https://local.abdn.ac.uk/mysql/phpmyadmin
+Account DB:
+    ID: u04li18_Accounts password: MindfulTrader
+Stock DB:
+    ID: u04li18_StockDB password: MindfulTrader

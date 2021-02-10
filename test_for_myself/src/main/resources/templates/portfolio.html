@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>Portfolio</title>
+</head>
+
+<script>
+var portfolio = "";
+
+function printPortfolio(portfolio){
+document.write(portfolio);
+}
+</script>
+
+
+<h1>Welcome to the Portfolio Management</h1>
+<p>Short deadline made it too long to modify the database generated with the spring security to add the portfolio type to it (that and tutorials 8 years old)</p>
+<p>Here we still miss the functions going to update the database with the new companies to add to the portfolio.</p>
+
+
+
+<p>You can add companies to it, as well as the number of shares you own:</p>
+Name of Company : <div><input type="checkbox" id="comp1" name="comp1" value="Apple">
+<label for="comp1"> Apple</label><br>
+<input type="checkbox" id="comp2" name="comp2" value="Amazon">
+<label for="comp2"> Amazon</label><br>
+<input type="checkbox" id="comp3" name="comp3" value="Oil">
+<label for="comp3"> Oil</label><br></div>
+<input type="button" value="update portfolio">
+<!-- We submit this data to the database once validated by the user. Check boxes are just for the proof of concept, we paln on adding more accessible feature for this-->
+
+<p>Your current porfolio is:</p>
+[<script>printPortfolio(portfolio);</script>]
+<br>
+
+<a th:href="@{/page2}">Algorithm here<br></a>
+
+</html>

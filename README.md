@@ -34,3 +34,5 @@ Account DB:
 Stock DB:
     
     ID: u04li18_StockDB password: MindfulTrader
+
+GOLF team

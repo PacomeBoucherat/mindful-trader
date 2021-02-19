@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<!-- this is the page where you can run the algorithm on test data, it will most likely be rearranged in the final product. -->
+
+
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
@@ -87,10 +90,11 @@ function algorithm (data,functionsToRun){
 
 <h1>Welcome to the Algorithm</h1>
 
-
+<!-- We have three sentences, in each there is a button that will the function created on a specific set of data, given as argument -->
 <p>To run the algorithm on the company A (a doomed company), click the following button:</p><input type=button onClick="algorithm(data1,torun)" value="Run algorithm on company A">
 <p>To run it on company B (an average company with average revenues), click this one :</p><input type=button onClick="algorithm(data2,torun)" value="Run algorithm on company B">
 <p>To run it on company C (a company breaking every records), click this one :</p><input type=button onClick="algorithm(data3,torun)" value="Run algorithm on company C">
 <br>
+	<!-- We add a link to the portfolio page -->
 <a th:href="@{/portfolio}">Portfolio</a>
 </html>

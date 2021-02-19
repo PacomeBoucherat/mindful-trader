@@ -1,11 +1,18 @@
 <!DOCTYPE html>
+<!-- This page is the page that leads to our website. It is not neccessary (we could just arrive on a 'please login' page, but I left it 'cause why not) -->
+
+<!-- We import the security method we need (actually I don't think we need to do it here as we don't use any method from this package but why not; Then we specify the title of the page -->
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head>
         <title>Spring Security Example</title>
     </head>
+    
+    <!-- This page only prints a 'Welcome', and the phrase 'click here to access the software -->
+    
     <body>
         <h1>Welcome!</h1>
-
+    <!-- This is the phrase that is printed, it is shown as we write it here except for things that are into <> here it is an achor/link to another page, called 'hello'. However, since this page requires to be athentified, it will redirect automaticaly the user to the login apge -->
+        
         <p>Click <a th:href="@{/hello}">here</a> to access the software.</p>
     </body>
 </html>

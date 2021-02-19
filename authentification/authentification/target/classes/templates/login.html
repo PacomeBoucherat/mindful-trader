@@ -1,16 +1,24 @@
 <!DOCTYPE html>
+<!-- This file is the page that allows you to login into the softawre.-->
+
+<!--We import the needed packages for security -->
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head>
         <title>Spring Security Example </title>
     </head>
+      
     <body>
+          <!-- We only print this message if we receive a 'param.error' after entering our informations -->
         <div th:if="${param.error}">
             Invalid username and password.
         </div>
+          <!-- Same here, but in this case you need to disconnect (by clicking the sign out button of 'hello' for example) -->
         <div th:if="${param.logout}">
             You have been logged out.
         </div>
+          <!-- We create two emtpy fields and a button that will run the 'login' function witht the given information -->
+          <!-- The login function will redirect the user to the page they tried to access before being asked to enter their username and password -->
         <form th:action="@{/login}" method="post">
             <div><label> User Name : <input type="text" name="username"/> </label></div>
             <div><label> Password: <input type="password" name="password"/> </label></div>

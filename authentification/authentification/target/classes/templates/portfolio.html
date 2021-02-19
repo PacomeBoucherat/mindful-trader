@@ -1,10 +1,14 @@
 <!DOCTYPE html>
+<!-- All of this is a sketch of the portofolio page, for now we can only check boxes to add companies to a local variable (everything is deleted once you leave the page) -->
+
+<!-- Importing packages we need for security, this page cannot be accessed without being logged in -->
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <title>Portfolio</title>
 </head>
 
+      <!-- Very small javacript function to print the portfolio made of the checked boxes -->
 <script>
 var portfolio = "";
 
@@ -19,7 +23,7 @@ document.write(portfolio);
 <p>Here we still miss the functions going to update the database with the new companies to add to the portfolio.</p>
 
 
-
+<!-- all of this is just the ceckbox, it won't look like that in the end so no worries if you don't understand something -->
 <p>You can add companies to it, as well as the number of shares you own:</p>
 Name of Company : <div><input type="checkbox" id="comp1" name="comp1" value="Apple">
 <label for="comp1"> Apple</label><br>
@@ -33,7 +37,7 @@ Name of Company : <div><input type="checkbox" id="comp1" name="comp1" value="App
 <p>Your current porfolio is:</p>
 [<script>printPortfolio(portfolio);</script>]
 <br>
-
+<!-- We add a link to the algorithm page -->
 <a th:href="@{/page2}">Algorithm here<br></a>
 
 </html>

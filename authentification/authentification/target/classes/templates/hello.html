@@ -1,14 +1,24 @@
 <!DOCTYPE html>
+
+<!-- the first line is needed to specify to the browser the kind of langage used. Here it is Html. The next two lines are the equivalent of 'import' in other langages. 
+I take the methods needed for the security app -->
+
+
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+      
+     <!-- It is often required to specify the title of the page, but I believe that the name of the file is one used in the address o access the website, and not this title -->
     <head>
         <title>Hello World!</title>
       
     </head>
+      
+     <!-- After specifying the 'head', (it can contain a lot more information about the page, such as the author and stuff, here we only used 'title'), we put into the 'body' what will actually be displayed on the page -->
     <body>
     	
-    
+    <!-- This next line prints 'hello' followed by the username -->
     <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]! Welcome to Mindful Trader!</h1>
+          <!-- We give the user three choices, he can use an action 'disconnect', or click on one of the two links below. The 'a' specification into the <> means that it is an anchor/link -->
         <form th:action="@{/logout}" method="post">
             <input type="submit" value="Sign Out"/><br>
             <a th:href="@{/page2}">Algorithm here<br></a>

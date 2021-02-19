@@ -1,4 +1,10 @@
+
 <script>
+
+//This whole file is just something I (Pacome) used to copy-paste things while trying to putthe script on another file to make reading the html pages easier.
+//I currently has no use and probably will never have. If you want the version with comments of the algorithm you can go to the drive where I recently posted he new version commented.
+
+
 
 var solution = {count:0 , advices:"This advice is valid for a time-span of 2 days"};
 var data = [[100.0 , 100.0 , 100.0 , 100.0] , [100.0,100.0,100.0,200.0] , [100.0 , 100.0 , 100.0 , 80.0] , [100.0 , 100.0 , 100.0 , 90.0]];
